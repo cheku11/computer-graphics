@@ -1,0 +1,45 @@
+#include<conio.h>
+#include<graphics.h>
+#include<dos.h>
+void main()
+{
+int gd=0,gm,i,j=2,MAX=100,k=0;
+initgraph(&gd,&gm,"C:\\TurboC3\\BGI");
+setbkcolor(2);
+setfillstyle(1,4);
+while(! kbhit())
+{
+//jump
+ if(j%2==0)
+ {
+ for(i=0;i<=MAX;i++)
+ {
+ setcolor(WHITE);
+ line(0,400,640,400);
+ setcolor(WHITE);
+ circle(40+k,370-i,30);
+ floodfill(40+k,370-i,WHITE);
+ k++;
+ delay(15);
+ cleardevice();
+ }}
+ //fall
+ else
+ {
+  for(i=MAX;i>=0;i--)
+  {
+  setcolor(WHITE);
+  line(0,400,640,400);
+  setcolor(WHITE);
+  circle(40+k,370-i,30);
+  floodfill(40+k,370-i,WHITE);
+  k++;
+  delay(15);
+  cleardevice();
+  }
+ }
+ j++;
+}
+getch();
+closegraph();
+}
